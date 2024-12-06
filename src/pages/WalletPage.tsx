@@ -1,7 +1,3 @@
 export const WalletPage = () => {
-    return(
-        <div>
-            Wallet
-        </div>
-    )
-}
+  return <div>Wallet</div>;
+};
