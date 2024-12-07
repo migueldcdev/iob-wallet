@@ -1,6 +1,9 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Input, Button } from "@chakra-ui/react";
 
+import { useAppDispatch } from "@/app/hooks";
+import { login } from "@/features/auth/authSlice";
+
 type Inputs = {
   email: string;
   password: string;
@@ -8,8 +11,9 @@ type Inputs = {
 
 export const LoginForm = () => {
   const { register, handleSubmit } = useForm<Inputs>();
+  const dispatch = useAppDispatch();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = (data) => dispatch(login(data.email));
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -18,7 +22,7 @@ export const LoginForm = () => {
         id="email"
         type="email"
         placeholder="Enter your email"
-        {...(register("email"), { required: true })}
+        {...register("email", { required: true })}
       />
 
       <label htmlFor="password">Password</label>
@@ -26,7 +30,7 @@ export const LoginForm = () => {
         id="password"
         type="password"
         placeholder="Enter your password"
-        {...(register("password"), { required: true, minLength: 8 })}
+        {...register("password", { required: true, minLength: 8 })}
       />
 
       <Button type="submit">Log in</Button>
