@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import { useAppDispatch } from "@/app/hooks";
 import { registration, User } from "@/features/auth/authSlice";
+import { createWallet } from "@/features/wallet/walletSlice";
 
 type Inputs = {
   name: string;
@@ -17,9 +18,11 @@ export const RegisterForm = () => {
   const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => registerUser(data);
-
+  
+  //refactor this function?
   function registerUser(user: User) {
     dispatch(registration(user));
+    dispatch(createWallet(user.email))
     navigate("/");
   }
 
