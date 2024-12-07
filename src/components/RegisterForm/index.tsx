@@ -1,6 +1,9 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Input, Button } from "@chakra-ui/react";
 
+import { useAppDispatch } from "@/app/hooks";
+import { registration } from "@/features/auth/authSlice";
+
 type Inputs = {
   name: string;
   email: string;
@@ -9,8 +12,9 @@ type Inputs = {
 
 export const RegisterForm = () => {
   const { register, handleSubmit } = useForm<Inputs>();
+  const dispatch = useAppDispatch()
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = (data) => dispatch(registration(data));
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -19,7 +23,7 @@ export const RegisterForm = () => {
         id="name"
         type="text"
         placeholder="Enter your name"
-        {...(register("name"), { required: true, minLength: 2, maxLength: 60 })}
+        {...register("name", { required: true, minLength: 2, maxLength: 60 })}
       />
 
       <label htmlFor="email">Email</label>
@@ -27,7 +31,7 @@ export const RegisterForm = () => {
         id="email"
         type="email"
         placeholder="Enter your email"
-        {...(register("email"), { required: true })}
+        {...register("email", { required: true })}
       />
 
       <label htmlFor="password">Password</label>
@@ -35,7 +39,7 @@ export const RegisterForm = () => {
         id="password"
         type="password"
         placeholder="Enter your password"
-        {...(register("password"), { required: true, minLength: 8 })}
+        {...register("password", { required: true, minLength: 8 })}
       />
 
       <Button type="submit">Create wallet</Button>
