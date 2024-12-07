@@ -1,5 +1,6 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Box, Input, Button, Center } from "@chakra-ui/react";
+import { PasswordInput } from "../ui/password-input";
 import { useNavigate } from "react-router-dom";
 
 import { useAppDispatch } from "@/app/hooks";
@@ -48,7 +49,7 @@ export const RegisterForm = () => {
       </Box>
       <Box marginY="3">
         <label htmlFor="password">Password</label>
-        <Input
+        <PasswordInput
           id="password"
           type="password"
           placeholder="Enter your password"
