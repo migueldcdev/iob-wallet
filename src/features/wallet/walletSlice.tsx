@@ -6,6 +6,7 @@ type Transaction = {
   from: string;
   to: string;
   amount: number;
+  memo: string;
 };
 
 type Wallet = {
