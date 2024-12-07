@@ -1,10 +1,13 @@
+import { Flex } from "@chakra-ui/react";
+
 import { LogoutButton } from "@/components/LogoutButton";
 
 export const WalletPage = () => {
   return (
-    <div>
-      Wallet
-      <LogoutButton />
-    </div>
+    <>
+      <Flex justify="flex-end" padding={2}>       
+        <LogoutButton/>
+      </Flex>
+    </>
   );
 };
