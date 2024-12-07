@@ -4,15 +4,19 @@ import { WalletPage } from "./pages/WalletPage";
 import { LoginPage } from "./pages/LoginPage";
 import { RegistrationPage } from "./pages/RegistrationPage";
 import { ProtectRoute } from "./components/ProtectRoute";
+import { useAppSelector } from "./app/hooks";
 
 function App() {
+  const currentUser = useAppSelector((state) => state.auth.currentUser);
+  const isUserAuthenticated = !!currentUser;
+
   return (
     <BrowserRouter>
       <Routes>
         <Route
           path="/"
           element={
-            <ProtectRoute isUserAuthenticated={true}>
+            <ProtectRoute isUserAuthenticated={isUserAuthenticated}>
               <WalletPage />
             </ProtectRoute>
           }

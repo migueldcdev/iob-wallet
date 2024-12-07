@@ -1,5 +1,6 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Input, Button } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 import { useAppDispatch } from "@/app/hooks";
 import { login } from "@/features/auth/authSlice";
@@ -12,8 +13,15 @@ type Inputs = {
 export const LoginForm = () => {
   const { register, handleSubmit } = useForm<Inputs>();
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => dispatch(login(data.email));
+  const onSubmit: SubmitHandler<Inputs> = (data) =>
+    authenticateUser(data.email);
+
+  function authenticateUser(email: string) {
+    dispatch(login(email));
+    navigate("/");
+  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

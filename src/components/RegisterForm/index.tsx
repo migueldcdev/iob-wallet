@@ -1,8 +1,9 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Input, Button } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 import { useAppDispatch } from "@/app/hooks";
-import { registration } from "@/features/auth/authSlice";
+import { registration, User } from "@/features/auth/authSlice";
 
 type Inputs = {
   name: string;
@@ -12,9 +13,15 @@ type Inputs = {
 
 export const RegisterForm = () => {
   const { register, handleSubmit } = useForm<Inputs>();
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => dispatch(registration(data));
+  const onSubmit: SubmitHandler<Inputs> = (data) => registerUser(data);
+
+  function registerUser(user: User) {
+    dispatch(registration(user));
+    navigate("/");
+  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
