@@ -51,8 +51,8 @@ export const Transfer: React.FC<TransferProps> = ({
       top="-3"
       left="0"
       width="full"
-      minHeight="60vh"
-      borderRadius="lg"
+      minHeight="56.5vh"
+      borderTopRadius="lg"
       _open={{ animation: "slide-fade-in 500ms ease-out" }}
     >
       <Flex justifyContent="space-between">

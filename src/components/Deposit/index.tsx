@@ -37,8 +37,8 @@ export const Deposit: React.FC<DepositProps> = ({ setShowDeposit, wallet }) => {
       top="-3"
       left="0"
       width="full"
-      minHeight="60vh"
-      borderRadius="lg"
+      minHeight="56.5vh"
+      borderTopRadius="lg"
       _open={{ animation: "slide-fade-in 500ms ease-out" }}
     >
       <Flex justifyContent="end">

@@ -16,6 +16,8 @@ export const Transactions = ({
       height="55vh"
       overflow="scroll"
       overflowX="hidden"
+      borderTopRadius="xl"
+      borderBottomWidth="1px"
     >
       <Text textStyle="xl" fontWeight="semibold" color="gray.600" padding="2">
         Transactions
