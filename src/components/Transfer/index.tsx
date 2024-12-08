@@ -26,6 +26,14 @@ export const Transfer: React.FC<TransferProps> = ({
   const dispatch = useAppDispatch();
 
   function handleTransfer() {
+    if (walletId === wallet.id) {
+      toaster.create({
+        title: "Forbidden: you can not transfer founds to the same wallet",
+        type: "error",
+      });
+
+      return;
+    }
     if (walletId && amount > 0)
       dispatch(transfer({ from: wallet.id, to: walletId, amount: amount }));
     setShowTransfer(false);
