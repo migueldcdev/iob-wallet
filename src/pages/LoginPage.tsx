@@ -1,4 +1,4 @@
-import { Center, Container, Text, Link } from "@chakra-ui/react";
+import { Center, Container, Text, Box } from "@chakra-ui/react";
 import { LoginForm } from "@/components/LoginForm";
 import { NavLink } from "react-router-dom";
 
@@ -11,7 +11,7 @@ export const LoginPage = () => {
           Not account?
           <NavLink to="/register">
             &nbsp;
-            <Link>Create one</Link>
+            <Box as="span"  _hover={{textDecoration: "underline", cursor: "pointer"}}>Create one</Box>
           </NavLink>
         </Text>
       </Container>

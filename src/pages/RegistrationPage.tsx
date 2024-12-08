@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { Center, Container, Text, Link } from "@chakra-ui/react";
+import { Center, Container, Text, Box } from "@chakra-ui/react";
 import { RegisterForm } from "@/components/RegisterForm";
 
 export const RegistrationPage = () => {
@@ -11,7 +11,7 @@ export const RegistrationPage = () => {
           Already have an account?
           <NavLink to="/login">
             &nbsp;
-            <Link>Log in</Link>
+            <Box as="span"  _hover={{textDecoration: "underline", cursor: "pointer"}}>Log in</Box>
           </NavLink>
         </Text>
       </Container>
