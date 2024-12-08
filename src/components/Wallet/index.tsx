@@ -3,20 +3,17 @@ import { MdArrowOutward } from "react-icons/md";
 import { LuPlus } from "react-icons/lu";
 
 export const Wallet = () => {
-    const today = new Date();
-    const formattedDate = new Intl.DateTimeFormat("en-US", {
-      month: "long",
-      day: "numeric",
-      year: "numeric",
-    }).format(today);
-
   return (
-    <Box background="gray.300" minWidth="1/3" borderRadius="md" paddingX="1">
-      <Box background="gray.600" borderBottomRadius="xl" color="gray.200" padding="1">
-        <Text>Welcome back,</Text>
-        <Text>Miguel!</Text>
-        <Text>{formattedDate}</Text>
-      </Box>  
+    <Box
+      background="gray.300"
+      width="5/6"
+      sm={{ width: "4/6" }}
+      md={{ width: "3/6" }}
+      lg={{ width: "2/6" }}
+      borderRadius="md"
+      paddingX="1"
+      marginTop="5"
+    >
       <Text marginTop="8" textStyle="4xl" fontWeight="bold">
         $1,000.63
       </Text>
@@ -28,10 +25,10 @@ export const Wallet = () => {
           background="white"
           color="gray.500"
           borderRadius="full"
-          paddingX="2"          
+          paddingX="2"
         >
-          <LuPlus />  
-          <Text>Add</Text>
+          <LuPlus />
+          <Text marginLeft="-2">Add</Text>
         </IconButton>
         <IconButton
           background="white"
@@ -40,7 +37,7 @@ export const Wallet = () => {
           paddingX="2"
         >
           <MdArrowOutward />
-          Send
+          <Text marginLeft="-2">Send</Text>
         </IconButton>
       </Flex>
     </Box>
