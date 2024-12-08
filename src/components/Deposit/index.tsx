@@ -27,7 +27,8 @@ export const Deposit: React.FC<DepositProps> = ({ setShowDeposit, wallet }) => {
       top="-3"
       left="0"
       width="full"
-      borderTopRadius="lg"
+      minHeight="60vh"
+      borderRadius="lg"
       _open={{ animation: "slide-fade-in 500ms ease-out" }}
     >
       <Flex justifyContent="space-between">
@@ -36,7 +37,7 @@ export const Deposit: React.FC<DepositProps> = ({ setShowDeposit, wallet }) => {
         </Text>
         <CloseButton onClick={() => setShowDeposit(false)} />
       </Flex>
-      <Text textAlign="center" textStyle="3xl" marginY="5PX">
+      <Text textAlign="center" textStyle="3xl" marginTop="30px">
         ${amount}
       </Text>
       <Flex justifyContent="center">
