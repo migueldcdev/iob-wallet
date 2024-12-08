@@ -54,8 +54,44 @@ const walletSlice = createSlice({
         });
       }
     },
+    transfer: (
+      state,
+      action: PayloadAction<{ from: string; to: string; amount: number }>,
+    ) => {
+      const walletFrom = state.wallets.find(
+        (wallet) => wallet.id === action.payload.from,
+      );
+      const walletTo = state.wallets.find(
+        (wallet) => wallet.id === action.payload.to,
+      );
+
+      if (walletFrom && walletTo) {
+        walletFrom.balance =
+          Math.round(
+            (Number(walletFrom.balance) - Number(action.payload.amount)) * 100,
+          ) / 100;
+        walletFrom.transactions.push({
+          id: uuidv4(),
+          from: action.payload.from,
+          to: action.payload.to,
+          amount: action.payload.amount,
+          memo: "Withdraw",
+        });
+        walletTo.balance =
+          Math.round(
+            (Number(walletTo.balance) + Number(action.payload.amount)) * 100,
+          ) / 100;
+        walletTo.transactions.push({
+          id: uuidv4(),
+          from: action.payload.from,
+          to: action.payload.to,
+          amount: action.payload.amount,
+          memo: "Deposit",
+        });
+      }
+    },
   },
 });
 
-export const { createWallet, deposit } = walletSlice.actions;
+export const { createWallet, deposit, transfer } = walletSlice.actions;
 export default walletSlice.reducer;

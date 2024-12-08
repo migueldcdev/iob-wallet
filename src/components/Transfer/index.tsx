@@ -1,8 +1,8 @@
-import { Wallet } from "@/features/wallet/walletSlice";
+import { transfer, Wallet } from "@/features/wallet/walletSlice";
 import { Box, Flex, Text, Button } from "@chakra-ui/react";
 import React, { Dispatch, SetStateAction, useState } from "react";
 import { CloseButton } from "../ui/close-button";
-import { useAppSelector } from "@/app/hooks";
+import { useAppSelector, useAppDispatch } from "@/app/hooks";
 import {
   NativeSelectField,
   NativeSelectRoot,
@@ -22,11 +22,12 @@ export const Transfer: React.FC<TransferProps> = ({
 
   const [walletId, setWalletId] = useState<string | null>(null);
   const [amount, setAmount] = useState(0);
-  
-  //toast error
+  const dispatch = useAppDispatch();
+
   function handleTransfer() {
-    if(walletId && amount > 0) console.log({from: wallet.id, to: walletId, amount: amount})
-  }  
+    if (walletId && amount > 0)
+      dispatch(transfer({ from: wallet.id, to: walletId, amount: amount }));
+  }
 
   return (
     <Box
@@ -73,7 +74,9 @@ export const Transfer: React.FC<TransferProps> = ({
         />
       </Flex>
       <Flex justifyContent="center">
-        <Button onClick={handleTransfer} width="1/3">Transfer</Button>
+        <Button onClick={handleTransfer} width="1/3">
+          Transfer
+        </Button>
       </Flex>
     </Box>
   );
