@@ -3,7 +3,8 @@ import { Box, Button, Flex, Text } from "@chakra-ui/react";
 
 import { CloseButton } from "../ui/close-button";
 import { Slider } from "../ui/slider";
-import { Wallet } from "@/features/wallet/walletSlice";
+import { deposit, Wallet } from "@/features/wallet/walletSlice";
+import { useAppDispatch } from "@/app/hooks";
 
 type DepositProps = {
   setShowDeposit: Dispatch<SetStateAction<boolean>>;
@@ -12,6 +13,11 @@ type DepositProps = {
 
 export const Deposit: React.FC<DepositProps> = ({ setShowDeposit, wallet }) => {
   const [amount, setAmount] = useState(0);
+  const dispatch = useAppDispatch();
+
+  function handleDeposit() {
+    dispatch(deposit({ id: wallet.id, amount: amount }));
+  }
 
   return (
     <Box
@@ -45,7 +51,9 @@ export const Deposit: React.FC<DepositProps> = ({ setShowDeposit, wallet }) => {
         />
       </Flex>
       <Flex justifyContent="center" padding="4">
-        <Button disabled={amount > 0 ? false : true}>Deposit</Button>
+        <Button onClick={handleDeposit} disabled={amount > 0 ? false : true}>
+          Deposit
+        </Button>
       </Flex>
     </Box>
   );

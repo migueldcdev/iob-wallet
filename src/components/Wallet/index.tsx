@@ -4,14 +4,14 @@ import { MdArrowOutward } from "react-icons/md";
 import { LuPlus } from "react-icons/lu";
 
 import { useAppSelector } from "@/app/hooks";
-import { getUserWallet } from "@/mocks/wallet";
 
 import { Transactions } from "../Transactions";
 import { Deposit } from "../Deposit";
 
 export const Wallet = () => {
   const user = useAppSelector((state) => state.auth.currentUser);
-  const wallet = user ? getUserWallet(user?.email) : null;
+  const wallets = useAppSelector((state) => state.wallet.wallets);
+  const wallet = wallets.find((wallet) => user?.email == wallet.user);
 
   const [showDeposit, setShowDeposit] = useState(false);
 
@@ -28,7 +28,7 @@ export const Wallet = () => {
           marginTop="5"
         >
           <Text marginTop="8" textStyle="4xl" fontWeight="bold" paddingX="1">
-            ${wallet?.balance}
+            ${wallet.balance}
           </Text>
           <Text textStyle="xs" color="gray.500" paddingX="1">
             USD ACCOUNT BALANCE

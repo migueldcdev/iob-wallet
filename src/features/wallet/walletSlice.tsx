@@ -36,8 +36,23 @@ const walletSlice = createSlice({
         transactions: [],
       });
     },
+    deposit: (state, action: PayloadAction<{ id: string; amount: number }>) => {
+      const wallet = state.wallets.find(
+        (wallet) => wallet.id === action.payload.id,
+      );
+      if (wallet) {
+        wallet.balance = Number(wallet.balance) + Number(action.payload.amount);
+        wallet.transactions.push({
+          id: uuidv4(),
+          from: "Stripe",
+          to: action.payload.id,
+          amount: action.payload.amount,
+          memo: "Deposit",
+        });
+      }
+    },
   },
 });
 
-export const { createWallet } = walletSlice.actions;
+export const { createWallet, deposit } = walletSlice.actions;
 export default walletSlice.reducer;
