@@ -1,8 +1,12 @@
 import React, { Dispatch, SetStateAction, useState } from "react";
-import { Box, Button, Flex, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Text, Center } from "@chakra-ui/react";
 
 import { CloseButton } from "../ui/close-button";
-import { Slider } from "../ui/slider";
+import {
+  NumberInputField,
+  NumberInputRoot,
+} from "@/components/ui/number-input";
+
 import { deposit, Wallet } from "@/features/wallet/walletSlice";
 import { useAppDispatch } from "@/app/hooks";
 import { toaster } from "../ui/toaster";
@@ -37,31 +41,27 @@ export const Deposit: React.FC<DepositProps> = ({ setShowDeposit, wallet }) => {
       borderRadius="lg"
       _open={{ animation: "slide-fade-in 500ms ease-out" }}
     >
-      <Flex justifyContent="space-between">
+      <Flex justifyContent="end">
+        <CloseButton onClick={() => setShowDeposit(false)} />
+      </Flex>
+      <Center>
         <Text padding="2" textStyle="xl" fontWeight="semibold" color="gray.600">
           Enter amount to deposit
         </Text>
-        <CloseButton onClick={() => setShowDeposit(false)} />
-      </Flex>
-      <Text textAlign="center" textStyle="3xl" marginTop="30px">
-        ${amount}
-      </Text>
-      <Flex justifyContent="center">
-        <Slider
-          min={0}
-          max={wallet.balance}
-          width="2/3"
-          padding="4"
+      </Center>
+      <Flex justifyContent="center" marginTop="5">
+        <NumberInputRoot
+          onValueChange={(value) => setAmount(value.valueAsNumber)}
           step={0.1}
-          value={[amount]}
-          onValueChange={(value) => setAmount(value.value[0])}
-        />
+        >
+          <NumberInputField />
+        </NumberInputRoot>
       </Flex>
-      <Flex justifyContent="center" padding="4">
-        <Button onClick={handleDeposit} disabled={amount <= 0}>
+      <Center marginTop="5">
+        <Button onClick={handleDeposit} disabled={amount < 0.1}>
           Deposit
         </Button>
-      </Flex>
+      </Center>
     </Box>
   );
 };
