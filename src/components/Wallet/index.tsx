@@ -21,6 +21,8 @@ export const Wallet = () => {
         <Box
           background="gray.300"
           width="5/6"
+          minHeight="80vh"
+          maxHeight="80vh"
           sm={{ width: "4/6" }}
           md={{ width: "3/6" }}
           lg={{ width: "2/6" }}
