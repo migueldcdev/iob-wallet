@@ -2,6 +2,8 @@ import { Box, Text, Flex, IconButton } from "@chakra-ui/react";
 import { MdArrowOutward } from "react-icons/md";
 import { LuPlus } from "react-icons/lu";
 
+import { Transactions } from "../Transactions";
+
 export const Wallet = () => {
   return (
     <Box
@@ -11,16 +13,15 @@ export const Wallet = () => {
       md={{ width: "3/6" }}
       lg={{ width: "2/6" }}
       borderRadius="md"
-      paddingX="1"
       marginTop="5"
     >
-      <Text marginTop="8" textStyle="4xl" fontWeight="bold">
+      <Text marginTop="8" textStyle="4xl" fontWeight="bold" paddingX="1">
         $1,000.63
       </Text>
-      <Text textStyle="xs" color="gray.500">
+      <Text textStyle="xs" color="gray.500" paddingX="1">
         USD ACCOUNT BALANCE
       </Text>
-      <Flex marginTop="6" gap="3">
+      <Flex marginTop="6" gap="3" paddingX="1">
         <IconButton
           background="white"
           color="gray.500"
@@ -40,6 +41,7 @@ export const Wallet = () => {
           <Text marginLeft="-2">Send</Text>
         </IconButton>
       </Flex>
+      <Transactions />
     </Box>
   );
 };
