@@ -1,7 +1,7 @@
 import { store } from "@/app/store";
 import { login } from "@/features/auth/authSlice";
 
-export function authenticateUser(email: string, password: string): void {
+export function authenticateUser(email: string, password: string): boolean {
   const state = store.getState();
   const users = state.auth.users;
 
@@ -9,5 +9,10 @@ export function authenticateUser(email: string, password: string): void {
     (user) => user.email == email && user.password == password,
   );
 
-  if (user) store.dispatch(login(user));
+  if (user) {
+    store.dispatch(login(user));
+    return true;
+  }
+
+  return false;
 }

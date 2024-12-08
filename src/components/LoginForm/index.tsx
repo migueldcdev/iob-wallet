@@ -4,6 +4,8 @@ import { PasswordInput } from "../ui/password-input";
 import { useNavigate } from "react-router-dom";
 
 import { authenticateUser } from "@/mocks/user";
+import { useState } from "react";
+import { Alert } from "../ui/alert";
 
 type Inputs = {
   email: string;
@@ -13,14 +15,17 @@ type Inputs = {
 export const LoginForm = () => {
   const { register, handleSubmit } = useForm<Inputs>();
   const navigate = useNavigate();
+  const [authError, setAuthError] = useState(false);
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    authenticateUser(data.email, data.password);
-    navigate("/");
+    const userAuthenticated = authenticateUser(data.email, data.password);
+    if (userAuthenticated) navigate("/");
+    if (!userAuthenticated) setAuthError(true);
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      {authError && <Alert status="error" title="Incorrect user or password" />}
       <Box marginY="3">
         <label htmlFor="email">Email</label>
         <Input
@@ -36,7 +41,7 @@ export const LoginForm = () => {
           id="password"
           type="password"
           placeholder="Enter your password"
-          {...register("password", { required: true, minLength: 8 })}
+          {...register("password", { required: true })}
         />
       </Box>
 

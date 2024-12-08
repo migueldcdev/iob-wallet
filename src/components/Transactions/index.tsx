@@ -6,8 +6,7 @@ export const Transactions = ({
 }: {
   transactions: Transaction[];
 }) => {
-  
-  const orderByMostRecent = [...transactions].reverse()
+  const orderByMostRecent = [...transactions].reverse();
 
   return (
     <Box

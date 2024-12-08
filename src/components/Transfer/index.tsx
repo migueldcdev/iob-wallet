@@ -27,7 +27,7 @@ export const Transfer: React.FC<TransferProps> = ({
   function handleTransfer() {
     if (walletId && amount > 0)
       dispatch(transfer({ from: wallet.id, to: walletId, amount: amount }));
-      setShowTransfer(false) 
+    setShowTransfer(false);
   }
 
   return (
@@ -75,7 +75,11 @@ export const Transfer: React.FC<TransferProps> = ({
         />
       </Flex>
       <Flex justifyContent="center">
-        <Button onClick={handleTransfer} width="1/3">
+        <Button
+          onClick={handleTransfer}
+          width="1/3"
+          disabled={amount == 0 || !walletId}
+        >
           Transfer
         </Button>
       </Flex>
