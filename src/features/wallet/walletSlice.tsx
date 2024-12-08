@@ -41,7 +41,10 @@ const walletSlice = createSlice({
         (wallet) => wallet.id === action.payload.id,
       );
       if (wallet) {
-        wallet.balance = Number(wallet.balance) + Number(action.payload.amount);
+        wallet.balance =
+          Math.round(
+            (Number(wallet.balance) + Number(action.payload.amount)) * 100,
+          ) / 100;
         wallet.transactions.push({
           id: uuidv4(),
           from: "Stripe",
