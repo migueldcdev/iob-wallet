@@ -28,7 +28,7 @@ export const Transactions = ({
 
       {transactions.length > 0 &&
         orderByMostRecent.map((transaction) => (
-          <TransactionItem transaction={transaction} />
+          <TransactionItem key={transaction.id} transaction={transaction} />
         ))}
     </Box>
   );
