@@ -7,6 +7,7 @@ import { useAppSelector } from "@/app/hooks";
 
 import { Transactions } from "../Transactions";
 import { Deposit } from "../Deposit";
+import { Transfer } from "../Transfer";
 
 export const Wallet = () => {
   const user = useAppSelector((state) => state.auth.currentUser);
@@ -14,6 +15,7 @@ export const Wallet = () => {
   const wallet = wallets.find((wallet) => user?.email == wallet.user);
 
   const [showDeposit, setShowDeposit] = useState(false);
+  const [showTransfer, setShowTransfer] = useState(false);
 
   return (
     <>
@@ -47,6 +49,7 @@ export const Wallet = () => {
               <Text marginLeft="-2">Add</Text>
             </IconButton>
             <IconButton
+              onClick={() => setShowTransfer((prev) => !prev)}
               background="white"
               color="gray.500"
               borderRadius="full"
@@ -60,6 +63,9 @@ export const Wallet = () => {
             <Transactions transactions={wallet.transactions} />
             {showDeposit && (
               <Deposit setShowDeposit={setShowDeposit} wallet={wallet} />
+            )}
+            {showTransfer && (
+              <Transfer setShowTransfer={setShowTransfer} wallet={wallet} />
             )}
           </Box>
         </Box>

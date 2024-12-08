@@ -25,7 +25,7 @@ export const Transactions = ({
 
       {transactions.length > 0 &&
         transactions.map((transaction) => (
-          <>
+          <Box key={transaction.id}>
             <Flex padding="2" justifyContent="space-between">
               <Box>
                 <Text>{transaction.from}</Text>
@@ -36,7 +36,7 @@ export const Transactions = ({
               </Text>
             </Flex>
             <Separator />
-          </>
+          </Box>
         ))}
     </Box>
   );
