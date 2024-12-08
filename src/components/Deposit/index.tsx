@@ -17,6 +17,7 @@ export const Deposit: React.FC<DepositProps> = ({ setShowDeposit, wallet }) => {
 
   function handleDeposit() {
     dispatch(deposit({ id: wallet.id, amount: amount }));
+    setShowDeposit(false);
   }
 
   return (

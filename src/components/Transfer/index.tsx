@@ -27,6 +27,7 @@ export const Transfer: React.FC<TransferProps> = ({
   function handleTransfer() {
     if (walletId && amount > 0)
       dispatch(transfer({ from: wallet.id, to: walletId, amount: amount }));
+      setShowTransfer(false) 
   }
 
   return (
