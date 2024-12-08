@@ -5,6 +5,7 @@ import { CloseButton } from "../ui/close-button";
 import { Slider } from "../ui/slider";
 import { deposit, Wallet } from "@/features/wallet/walletSlice";
 import { useAppDispatch } from "@/app/hooks";
+import { toaster } from "../ui/toaster";
 
 type DepositProps = {
   setShowDeposit: Dispatch<SetStateAction<boolean>>;
@@ -18,6 +19,11 @@ export const Deposit: React.FC<DepositProps> = ({ setShowDeposit, wallet }) => {
   function handleDeposit() {
     dispatch(deposit({ id: wallet.id, amount: amount }));
     setShowDeposit(false);
+    toaster.create({
+      title: `Succesfully deposited $${amount}`,
+      type: "success"
+    })
+
   }
 
   return (
