@@ -7,11 +7,7 @@ import { useAppDispatch } from "@/app/hooks";
 import { registration, User } from "@/features/auth/authSlice";
 import { createWallet } from "@/features/wallet/walletSlice";
 
-type Inputs = {
-  name: string;
-  email: string;
-  password: string;
-};
+type Inputs = Omit<User, "id">;
 
 export const RegisterForm = () => {
   const { register, handleSubmit } = useForm<Inputs>();
@@ -21,7 +17,7 @@ export const RegisterForm = () => {
   const onSubmit: SubmitHandler<Inputs> = (data) => registerUser(data);
 
   //refactor this function?
-  function registerUser(user: User) {
+  function registerUser(user: Inputs) {
     dispatch(registration(user));
     dispatch(createWallet(user.email));
     navigate("/");

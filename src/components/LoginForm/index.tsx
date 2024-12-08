@@ -3,8 +3,7 @@ import { Box, Input, Button, Center } from "@chakra-ui/react";
 import { PasswordInput } from "../ui/password-input";
 import { useNavigate } from "react-router-dom";
 
-import { useAppDispatch } from "@/app/hooks";
-import { login } from "@/features/auth/authSlice";
+import { authenticateUser } from "@/mocks/user";
 
 type Inputs = {
   email: string;
@@ -13,16 +12,12 @@ type Inputs = {
 
 export const LoginForm = () => {
   const { register, handleSubmit } = useForm<Inputs>();
-  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) =>
-    authenticateUser(data.email);
-
-  function authenticateUser(email: string) {
-    dispatch(login(email));
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    authenticateUser(data.email, data.password);
     navigate("/");
-  }
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
