@@ -8,7 +8,7 @@ export const Transactions = ({
 }) => {
   return (
     <Box background="white" marginTop="5">
-      <Text textStyle="xl" fontWeight="semibold" color="gray.600">
+      <Text textStyle="xl" fontWeight="semibold" color="gray.600" padding="2">
         Transactions
       </Text>
       {transactions.length == 0 && (

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Box, Text, Flex, IconButton } from "@chakra-ui/react";
 import { MdArrowOutward } from "react-icons/md";
 import { LuPlus } from "react-icons/lu";
@@ -6,10 +7,13 @@ import { useAppSelector } from "@/app/hooks";
 import { getUserWallet } from "@/mocks/wallet";
 
 import { Transactions } from "../Transactions";
+import { Deposit } from "../Deposit";
 
 export const Wallet = () => {
   const user = useAppSelector((state) => state.auth.currentUser);
   const wallet = user ? getUserWallet(user?.email) : null;
+
+  const [showDeposit, setShowDeposit] = useState(false);
 
   return (
     <>
@@ -31,6 +35,7 @@ export const Wallet = () => {
           </Text>
           <Flex marginTop="6" gap="3" paddingX="1">
             <IconButton
+              onClick={() => setShowDeposit((prev) => !prev)}
               background="white"
               color="gray.500"
               borderRadius="full"
@@ -49,7 +54,12 @@ export const Wallet = () => {
               <Text marginLeft="-2">Send</Text>
             </IconButton>
           </Flex>
-          <Transactions transactions={wallet.transactions} />
+          <Box position="relative">
+            <Transactions transactions={wallet.transactions} />
+            {showDeposit && (
+              <Deposit setShowDeposit={setShowDeposit} wallet={wallet} />
+            )}
+          </Box>
         </Box>
       )}
     </>

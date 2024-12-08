@@ -9,7 +9,7 @@ export type Transaction = {
   memo: string;
 };
 
-type Wallet = {
+export type Wallet = {
   id: string;
   user: string;
   balance: number;
@@ -32,7 +32,7 @@ const walletSlice = createSlice({
       state.wallets.push({
         id: uuidv4(),
         user: action.payload,
-        balance: 0,
+        balance: 100,
         transactions: [],
       });
     },
