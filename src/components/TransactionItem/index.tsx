@@ -6,21 +6,21 @@ export const TransactionItem = ({
 }: {
   transaction: Transaction;
 }) => {
-  const { id, from, memo, amount } = transaction;
+  const { from, memo, amount } = transaction;
   const isWithdraw = memo === "Withdraw";
   const color = isWithdraw ? "red.500" : "gray.600";
   const trimFrom = from.split("-")[0];
 
   return (
-    <Box key={id}>
+    <Box>
       <Flex padding="2" justifyContent="space-between">
         <Box>
           <Text>{trimFrom}</Text>
           <Text textStyle="xs">{memo}</Text>
         </Box>
-        <Text textStyle="xl" marginTop={2} color={color}>
+        <Text textStyle="md" marginTop={2} color={color} fontWeight="bold">
           {isWithdraw && "-"}
-          {amount}
+          {amount} $
         </Text>
       </Flex>
       <Separator />
