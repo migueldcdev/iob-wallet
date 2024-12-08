@@ -8,6 +8,7 @@ import {
   NativeSelectRoot,
 } from "@/components/ui/native-select";
 import { Slider } from "../ui/slider";
+import { toaster } from "../ui/toaster";
 
 type TransferProps = {
   setShowTransfer: Dispatch<SetStateAction<boolean>>;
@@ -28,6 +29,10 @@ export const Transfer: React.FC<TransferProps> = ({
     if (walletId && amount > 0)
       dispatch(transfer({ from: wallet.id, to: walletId, amount: amount }));
     setShowTransfer(false);
+    toaster.create({
+      title: `Transfered ${amount} to ${walletId}`,
+      type: "success"
+    })
   }
 
   return (
