@@ -1,5 +1,6 @@
-import { Box, Text, Flex, Separator } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import { Transaction } from "@/features/wallet/walletSlice";
+import { TransactionItem } from "../TransactionItem";
 
 export const Transactions = ({
   transactions,
@@ -27,18 +28,7 @@ export const Transactions = ({
 
       {transactions.length > 0 &&
         orderByMostRecent.map((transaction) => (
-          <Box key={transaction.id}>
-            <Flex padding="2" justifyContent="space-between">
-              <Box>
-                <Text>{transaction.from}</Text>
-                <Text textStyle="xs">{transaction.memo}</Text>
-              </Box>
-              <Text textStyle="xl" marginTop={2} color="green.500">
-                {transaction.amount}
-              </Text>
-            </Flex>
-            <Separator />
-          </Box>
+          <TransactionItem transaction={transaction} />
         ))}
     </Box>
   );
