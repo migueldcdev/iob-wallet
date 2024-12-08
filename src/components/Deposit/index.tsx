@@ -13,7 +13,7 @@ type DepositProps = {
 };
 
 export const Deposit: React.FC<DepositProps> = ({ setShowDeposit, wallet }) => {
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState<number>(0);
   const dispatch = useAppDispatch();
 
   function handleDeposit() {
@@ -21,9 +21,8 @@ export const Deposit: React.FC<DepositProps> = ({ setShowDeposit, wallet }) => {
     setShowDeposit(false);
     toaster.create({
       title: `Succesfully deposited $${amount}`,
-      type: "success"
-    })
-
+      type: "success",
+    });
   }
 
   return (
@@ -55,11 +54,11 @@ export const Deposit: React.FC<DepositProps> = ({ setShowDeposit, wallet }) => {
           padding="4"
           step={0.1}
           value={[amount]}
-          onChange={(event) => setAmount(event.target.value)}
+          onValueChange={(value) => setAmount(value.value[0])}
         />
       </Flex>
       <Flex justifyContent="center" padding="4">
-        <Button onClick={handleDeposit} disabled={amount > 0 ? false : true}>
+        <Button onClick={handleDeposit} disabled={amount <= 0}>
           Deposit
         </Button>
       </Flex>

@@ -22,7 +22,7 @@ export const Transfer: React.FC<TransferProps> = ({
   const wallets = useAppSelector((state) => state.wallet.wallets);
 
   const [walletId, setWalletId] = useState<string | null>(null);
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState<number>(0);
   const dispatch = useAppDispatch();
 
   function handleTransfer() {
@@ -31,8 +31,8 @@ export const Transfer: React.FC<TransferProps> = ({
     setShowTransfer(false);
     toaster.create({
       title: `Succesfuly transfered $${amount}`,
-      type: "success"
-    })
+      type: "success",
+    });
   }
 
   return (
@@ -76,7 +76,7 @@ export const Transfer: React.FC<TransferProps> = ({
           padding="4"
           step={0.1}
           value={[amount]}
-          onChange={(event) => setAmount(event.target.value)}
+          onValueChange={(value) => setAmount(value.value[0])}
         />
       </Flex>
       <Flex justifyContent="center">
