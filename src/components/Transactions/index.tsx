@@ -6,6 +6,9 @@ export const Transactions = ({
 }: {
   transactions: Transaction[];
 }) => {
+  
+  const orderByMostRecent = [...transactions].reverse()
+
   return (
     <Box
       background="white"
@@ -24,7 +27,7 @@ export const Transactions = ({
       )}
 
       {transactions.length > 0 &&
-        transactions.map((transaction) => (
+        orderByMostRecent.map((transaction) => (
           <Box key={transaction.id}>
             <Flex padding="2" justifyContent="space-between">
               <Box>
