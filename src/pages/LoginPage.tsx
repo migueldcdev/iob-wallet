@@ -11,7 +11,12 @@ export const LoginPage = () => {
           Not account?
           <NavLink to="/register">
             &nbsp;
-            <Box as="span"  _hover={{textDecoration: "underline", cursor: "pointer"}}>Create one</Box>
+            <Box
+              as="span"
+              _hover={{ textDecoration: "underline", cursor: "pointer" }}
+            >
+              Create one
+            </Box>
           </NavLink>
         </Text>
       </Container>
