@@ -21,8 +21,8 @@ export const Wallet = () => {
     <>
       {wallet && (
         <Box
-          background="gray.300"
-          width="5/6"
+          background="gray.300"          
+          width="full"
           minHeight="80vh"
           maxHeight="80vh"
           sm={{ width: "4/6" }}
