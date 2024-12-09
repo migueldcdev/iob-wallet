@@ -89,7 +89,7 @@ describe("Deposit component unit test", () => {
 
     const depositButton = screen.getByRole("button", { name: "Deposit" });
 
-    expect(await user.click(depositButton)).toMatchSnapshot();
+    await user.click(depositButton);
 
     const state = store.getState();
 
