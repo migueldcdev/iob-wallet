@@ -9,6 +9,6 @@ export default defineConfig({
     alias: {
       "@": path.resolve(__dirname, "src"),
     },
-    setupFiles: "./test/vitest.setup.ts",       
+    setupFiles: "./test/vitest.setup.ts",
   },
 });
