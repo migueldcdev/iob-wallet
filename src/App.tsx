@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { WalletPage } from "./pages/WalletPage";
 import { LoginPage } from "./components/LoginPage";
-import { RegistrationPage } from "./pages/RegistrationPage";
+import { RegisterPage } from "./components/RegisterPage";
 import { ProtectRoute } from "./components/ProtectRoute";
 import { useAppSelector } from "./app/hooks";
 
@@ -22,7 +22,7 @@ function App() {
           }
         />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegistrationPage />} />
+        <Route path="/register" element={<RegisterPage />} />
       </Routes>
     </BrowserRouter>
   );

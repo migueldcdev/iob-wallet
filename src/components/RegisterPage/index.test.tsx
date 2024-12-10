@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest";
-import { RegisterForm } from ".";
+import { RegisterPage } from ".";
 import { renderWithProviders } from "@/test-utils";
 // wrap in BrowserRoute to fix: useNavigate() may be
 //used only in the context of a <Router> component.
@@ -21,7 +21,7 @@ describe("Register Form component unit test", () => {
   test("creates user and set as current", async () => {
     const { store } = renderWithProviders(
       <BrowserRouter>
-        <RegisterForm />
+        <RegisterPage />
       </BrowserRouter>,
       {
         preloadedState: {
@@ -64,7 +64,7 @@ describe("Register Form component unit test", () => {
   test("creates wallet", async () => {
     const { store } = renderWithProviders(
       <BrowserRouter>
-        <RegisterForm />
+        <RegisterPage />
       </BrowserRouter>,
       {
         preloadedState: {
