@@ -22,8 +22,17 @@ const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    login: (state, action: PayloadAction<User>) => {
-      state.currentUser = action.payload;
+    login: (
+      state,
+      action: PayloadAction<{ email: string; password: string }>,
+    ) => {
+      const user = state.users.find(
+        (user) =>
+          user.email == action.payload.email &&
+          user.password == action.payload.password,
+      );
+
+      if (user) state.currentUser = user;
     },
     registration: (state, action: PayloadAction<Omit<User, "id">>) => {
       const user = {

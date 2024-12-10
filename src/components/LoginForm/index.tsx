@@ -3,9 +3,8 @@ import { Box, Input, Button, Center } from "@chakra-ui/react";
 import { PasswordInput } from "../ui/password-input";
 import { useNavigate } from "react-router-dom";
 
-import { authenticateUser } from "@/mocks/user";
-import { useState } from "react";
-import { Alert } from "../ui/alert";
+import { useAppDispatch } from "@/app/hooks";
+import { login } from "@/features/auth/authSlice";
 
 type Inputs = {
   email: string;
@@ -15,17 +14,16 @@ type Inputs = {
 export const LoginForm = () => {
   const { register, handleSubmit } = useForm<Inputs>();
   const navigate = useNavigate();
-  const [authError, setAuthError] = useState(false);
+
+  const dispatch = useAppDispatch();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    const userAuthenticated = authenticateUser(data.email, data.password);
-    if (userAuthenticated) navigate("/");
-    if (!userAuthenticated) setAuthError(true);
+    dispatch(login({ email: data.email, password: data.password }));
+    navigate("/");
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      {authError && <Alert status="error" title="Incorrect user or password" />}
       <Box marginY="3">
         <label htmlFor="email">Email</label>
         <Input
