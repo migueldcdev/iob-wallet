@@ -34,7 +34,7 @@ export const Deposit: React.FC<DepositProps> = ({ setShowDeposit, wallet }) => {
       data-state="open"
       background="blue.50"
       position="absolute"
-      top="0"      
+      top="0"
       left="0"
       width="full"
       minHeight="50vh"
@@ -53,8 +53,14 @@ export const Deposit: React.FC<DepositProps> = ({ setShowDeposit, wallet }) => {
         <NumberInputRoot
           onValueChange={(value) => setAmount(value.valueAsNumber)}
           step={0.1}
+          size="lg"
+          width="1/3"
+          formatOptions={{
+            style: "currency",
+            currency: "USD",
+          }}
         >
-          <NumberInputField />
+          <NumberInputField fontSize="xl" />
         </NumberInputRoot>
       </Flex>
       <Center marginTop="5">
