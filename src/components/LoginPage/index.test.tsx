@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest";
-import { LoginForm } from ".";
+import { LoginPage } from ".";
 import { renderWithProviders } from "@/test-utils";
 // wrap in BrowserRoute to fix: useNavigate() may be
 //used only in the context of a <Router> component.
@@ -35,7 +35,7 @@ describe("Login form unit test", () => {
   test("handles user login", async () => {
     const { store } = renderWithProviders(
       <BrowserRouter>
-        <LoginForm />
+        <LoginPage />
       </BrowserRouter>,
       {
         preloadedState: {

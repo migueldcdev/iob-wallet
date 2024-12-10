@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { WalletPage } from "./pages/WalletPage";
-import { LoginPage } from "./pages/LoginPage";
+import { LoginPage } from "./components/LoginPage";
 import { RegistrationPage } from "./pages/RegistrationPage";
 import { ProtectRoute } from "./components/ProtectRoute";
 import { useAppSelector } from "./app/hooks";
