@@ -48,11 +48,11 @@ export const Transfer: React.FC<TransferProps> = ({
       data-state="open"
       background="blue.50"
       position="absolute"
-      top="-3"
+      top="0"
       left="0"
       width="full"
-      minHeight="56.5vh"
-      borderTopRadius="lg"
+      minHeight="50vh"
+      borderRadius="lg"
       _open={{ animation: "slide-fade-in 500ms ease-out" }}
     >
       <Flex justifyContent="space-between">

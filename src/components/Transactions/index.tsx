@@ -13,10 +13,11 @@ export const Transactions = ({
     <Box
       background="white"
       marginTop="5"
-      height="55vh"
+      marginBottom="5"
+      height="50vh"
       overflow="scroll"
       overflowX="hidden"
-      borderTopRadius="xl"
+      borderRadius="xl"
       borderBottomWidth="1px"
     >
       <Text textStyle="xl" fontWeight="semibold" color="gray.600" padding="2">
