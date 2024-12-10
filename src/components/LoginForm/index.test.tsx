@@ -1,4 +1,4 @@
-import { describe, test } from "vitest";
+import { describe, test, expect } from "vitest";
 import { LoginForm } from ".";
 import { renderWithProviders } from "@/test-utils";
 // wrap in BrowserRoute to fix: useNavigate() may be
@@ -33,7 +33,7 @@ const initialState = {
 
 describe("Login form unit test", () => {
   test("handles user login", async () => {
-    renderWithProviders(
+    const { store } = renderWithProviders(
       <BrowserRouter>
         <LoginForm />
       </BrowserRouter>,
@@ -59,6 +59,8 @@ describe("Login form unit test", () => {
 
     await user.click(loginButton);
 
-    //todo
+    const state = store.getState();
+
+    expect(state.auth.currentUser).toBe(initialState.auth.users[0]);
   });
 });
