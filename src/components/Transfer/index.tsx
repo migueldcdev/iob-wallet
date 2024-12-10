@@ -22,7 +22,7 @@ export const Transfer: React.FC<TransferProps> = ({
   const wallets = useAppSelector((state) => state.wallet.wallets);
 
   const [walletId, setWalletId] = useState<string | null>(null);
-  const [amount, setAmount] = useState<number>(0);
+  const [amount, setAmount] = useState(0);
   const dispatch = useAppDispatch();
 
   function handleTransfer() {

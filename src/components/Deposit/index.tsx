@@ -17,7 +17,7 @@ type DepositProps = {
 };
 
 export const Deposit: React.FC<DepositProps> = ({ setShowDeposit, wallet }) => {
-  const [amount, setAmount] = useState<number>(0);
+  const [amount, setAmount] = useState(0);
   const dispatch = useAppDispatch();
 
   function handleDeposit() {
