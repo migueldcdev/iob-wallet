@@ -47,7 +47,7 @@ export const Transfer: React.FC<TransferProps> = ({
   return (
     <Box
       data-state="open"
-      background="blue.50"
+      background="white"
       position="absolute"
       top="0"
       left="0"

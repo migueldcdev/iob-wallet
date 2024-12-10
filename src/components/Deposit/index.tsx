@@ -32,7 +32,7 @@ export const Deposit: React.FC<DepositProps> = ({ setShowDeposit, wallet }) => {
   return (
     <Box
       data-state="open"
-      background="blue.50"
+      background="white"
       position="absolute"
       top="0"
       left="0"
