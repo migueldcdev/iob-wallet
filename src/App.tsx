@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { WalletPage } from "./pages/WalletPage";
+import { WalletPage } from "./components/WalletPage";
 import { LoginPage } from "./components/LoginPage";
 import { RegisterPage } from "./components/RegisterPage";
 import { ProtectRoute } from "./components/ProtectRoute";
