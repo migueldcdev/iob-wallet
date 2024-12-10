@@ -57,7 +57,7 @@ export const Transfer: React.FC<TransferProps> = ({
       _open={{ animation: "slide-fade-in 500ms ease-out" }}
     >
       <Flex justifyContent="space-between">
-        <Text padding="2" textStyle="xl" fontWeight="semibold" color="gray.600">
+        <Text padding="2" textStyle="xl" fontWeight="semibold">
           Choose wallet to transfer
         </Text>
         <CloseButton onClick={() => setShowTransfer(false)} />

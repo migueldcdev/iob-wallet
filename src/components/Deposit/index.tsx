@@ -45,7 +45,7 @@ export const Deposit: React.FC<DepositProps> = ({ setShowDeposit, wallet }) => {
         <CloseButton onClick={() => setShowDeposit(false)} />
       </Flex>
       <Center>
-        <Text padding="2" textStyle="xl" fontWeight="semibold" color="gray.600">
+        <Text padding="2" textStyle="xl" fontWeight="semibold">
           Enter amount to deposit
         </Text>
       </Center>

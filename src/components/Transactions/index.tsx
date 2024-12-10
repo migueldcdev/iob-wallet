@@ -20,7 +20,7 @@ export const Transactions = ({
       borderRadius="xl"
       borderBottomWidth="1px"
     >
-      <Text textStyle="xl" fontWeight="semibold" color="gray.600" padding="2">
+      <Text textStyle="xl" fontWeight="semibold" padding="2">
         Transactions
       </Text>
       {transactions.length == 0 && (

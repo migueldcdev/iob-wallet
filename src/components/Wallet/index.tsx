@@ -36,14 +36,14 @@ export const Wallet = () => {
           <Text marginTop="8" textStyle="4xl" fontWeight="bold" paddingX="1">
             ${numberToIntl(wallet.balance)}
           </Text>
-          <Text textStyle="xs" color="gray.500" paddingX="1">
+          <Text textStyle="xs" color="gray.600" paddingX="1">
             USD ACCOUNT BALANCE
           </Text>
           <Flex marginTop="6" gap="3" paddingX="1">
             <IconButton
               onClick={() => setShowDeposit((prev) => !prev)}
               background="white"
-              color="gray.500"
+              color="black"
               borderRadius="full"
               paddingX="2"
             >
@@ -53,7 +53,7 @@ export const Wallet = () => {
             <IconButton
               onClick={() => setShowTransfer((prev) => !prev)}
               background="white"
-              color="gray.500"
+              color="black"
               borderRadius="full"
               paddingX="2"
             >
