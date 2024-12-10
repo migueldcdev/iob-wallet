@@ -8,6 +8,7 @@ import { useAppSelector } from "@/app/hooks";
 import { Transactions } from "../Transactions";
 import { Deposit } from "../Deposit";
 import { Transfer } from "../Transfer";
+import { numberToIntl } from "@/utils";
 
 export const Wallet = () => {
   const user = useAppSelector((state) => state.auth.currentUser);
@@ -33,7 +34,7 @@ export const Wallet = () => {
           padding="2"
         >
           <Text marginTop="8" textStyle="4xl" fontWeight="bold" paddingX="1">
-            ${wallet.balance}
+            ${numberToIntl(wallet.balance)}
           </Text>
           <Text textStyle="xs" color="gray.500" paddingX="1">
             USD ACCOUNT BALANCE

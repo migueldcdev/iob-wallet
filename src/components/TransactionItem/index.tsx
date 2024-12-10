@@ -1,5 +1,6 @@
 import { Box, Flex, Text, Separator } from "@chakra-ui/react";
 import { Transaction } from "@/features/wallet/walletSlice";
+import { numberToIntl } from "@/utils";
 
 export const TransactionItem = ({
   transaction,
@@ -20,7 +21,7 @@ export const TransactionItem = ({
         </Box>
         <Text textStyle="md" marginTop={2} color={color} fontWeight="bold">
           {isWithdraw && "-"}
-          {amount} $
+          {numberToIntl(amount)} $
         </Text>
       </Flex>
       <Separator />

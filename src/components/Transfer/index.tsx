@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/native-select";
 import { Slider } from "../ui/slider";
 import { toaster } from "../ui/toaster";
+import { numberToIntl } from "@/utils";
 
 type TransferProps = {
   setShowTransfer: Dispatch<SetStateAction<boolean>>;
@@ -75,7 +76,7 @@ export const Transfer: React.FC<TransferProps> = ({
           </NativeSelectField>
         </NativeSelectRoot>
         <Text textAlign="center" textStyle="3xl" marginTop="30px">
-          ${amount}
+          ${numberToIntl(amount)}
         </Text>
         <Slider
           min={0}
