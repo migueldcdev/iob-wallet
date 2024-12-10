@@ -4,8 +4,8 @@ import type { RenderOptions } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { Provider as ChakraProvider } from "../components/ui/provider.tsx";
 
-import { setupStore } from "../app/store";
-import type { AppStore, RootState } from "../app/store";
+import { setupStore } from "../app/store.ts";
+import type { AppStore, RootState } from "../app/store.ts";
 
 interface ExtendedRenderOptions extends Omit<RenderOptions, "queries"> {
   preloadedState?: Partial<RootState>;
