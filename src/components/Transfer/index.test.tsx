@@ -67,9 +67,7 @@ describe("Transfer component unit test", () => {
     await user.selectOptions(
       walletSelect,
       "3bc20a08-997a-439e-8953-a3034bf372dc",
-    );
-
-    console.log("Selected option value:", walletSelect.value);
+    );    
 
     const inputSlider = screen.getByRole("slider");
 
