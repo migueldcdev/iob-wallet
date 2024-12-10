@@ -36,8 +36,7 @@ To implement Redux, I chose the modern approach recommended by the official docu
 
 To test the app core functionalities instead of testing the reducers separated from the components I decided to make a wrapper including the Redux and the Chakra UI providers, getting closer to a real use-case scenario and enabling more thorough tests that cover the entire process.
 
-
-## Stack:
+## Stack
 
 - TypeScript
 - React
@@ -47,3 +46,6 @@ To test the app core functionalities instead of testing the reducers separated f
 - Prettier
 
 ## Considered improvements
+
+- Add E2E testing with Playwright
+- App palette selection
