@@ -24,7 +24,7 @@ export const Deposit: React.FC<DepositProps> = ({ setShowDeposit, wallet }) => {
     dispatch(deposit({ id: wallet.id, amount: amount }));
     setShowDeposit(false);
     toaster.create({
-      title: `Succesfully deposited $${amount}`,
+      title: `Successfully deposited $${amount}`,
       type: "success",
     });
   }
