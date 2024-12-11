@@ -10,6 +10,7 @@ import {
 import { deposit, Wallet } from "@/features/wallet/walletSlice";
 import { useAppDispatch } from "@/app/hooks";
 import { toaster } from "../ui/toaster";
+import { numberToIntl } from "@/utils";
 
 type DepositProps = {
   setShowDeposit: Dispatch<SetStateAction<boolean>>;
@@ -24,7 +25,7 @@ export const Deposit: React.FC<DepositProps> = ({ setShowDeposit, wallet }) => {
     dispatch(deposit({ id: wallet.id, amount: amount }));
     setShowDeposit(false);
     toaster.create({
-      title: `Successfully deposited $${amount}`,
+      title: `Successfully deposited $${numberToIntl(amount)}`,
       type: "success",
     });
   }

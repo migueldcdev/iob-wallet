@@ -39,7 +39,7 @@ export const Transfer: React.FC<TransferProps> = ({
       dispatch(transfer({ from: wallet.id, to: walletId, amount: amount }));
     setShowTransfer(false);
     toaster.create({
-      title: `Succesfuly transfered $${amount}`,
+      title: `Succesfuly transfered $${numberToIntl(amount)}`,
       type: "success",
     });
   }
