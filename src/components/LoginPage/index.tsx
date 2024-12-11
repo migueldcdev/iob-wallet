@@ -58,6 +58,7 @@ export const LoginPage = () => {
             &nbsp;
             <Box
               as="span"
+              color="blue.500"
               _hover={{ textDecoration: "underline", cursor: "pointer" }}
             >
               Create one

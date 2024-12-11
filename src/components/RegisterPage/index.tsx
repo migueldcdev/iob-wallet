@@ -99,6 +99,7 @@ export const RegisterPage = () => {
             <Box
               as="span"
               _hover={{ textDecoration: "underline", cursor: "pointer" }}
+              color="blue.500"
             >
               Log in
             </Box>
