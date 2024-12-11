@@ -24,6 +24,19 @@ const initialState: WalletState = {
   wallets: [],
 };
 
+function calculateRoundedBalance(
+  balance: number,
+  amount: number,
+  operation: "add" | "substract",
+) {
+  const total =
+    operation === "add"
+      ? Number(balance) + Number(amount)
+      : Number(balance) - Number(amount);
+
+  return Math.round(total * 100) / 100;
+}
+
 const walletSlice = createSlice({
   name: "wallet",
   initialState,
@@ -41,10 +54,11 @@ const walletSlice = createSlice({
         (wallet) => wallet.id === action.payload.id,
       );
       if (wallet) {
-        wallet.balance =
-          Math.round(
-            (Number(wallet.balance) + Number(action.payload.amount)) * 100,
-          ) / 100;
+        wallet.balance = calculateRoundedBalance(
+          wallet.balance,
+          action.payload.amount,
+          "add",
+        );
         wallet.transactions.push({
           id: uuidv4(),
           from: "Stripe",
@@ -66,10 +80,12 @@ const walletSlice = createSlice({
       );
 
       if (walletFrom && walletTo) {
-        walletFrom.balance =
-          Math.round(
-            (Number(walletFrom.balance) - Number(action.payload.amount)) * 100,
-          ) / 100;
+        walletFrom.balance = calculateRoundedBalance(
+          walletFrom.balance,
+          action.payload.amount,
+          "substract",
+        );
+
         walletFrom.transactions.push({
           id: uuidv4(),
           from: action.payload.from,
@@ -77,10 +93,12 @@ const walletSlice = createSlice({
           amount: action.payload.amount,
           memo: "Withdraw",
         });
-        walletTo.balance =
-          Math.round(
-            (Number(walletTo.balance) + Number(action.payload.amount)) * 100,
-          ) / 100;
+        walletTo.balance = calculateRoundedBalance(
+          walletTo.balance,
+          action.payload.amount,
+          "add",
+        );
+
         walletTo.transactions.push({
           id: uuidv4(),
           from: action.payload.from,
