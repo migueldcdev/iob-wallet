@@ -8,7 +8,7 @@ export const LogoutButton = () => {
   const dispatch = useAppDispatch();
 
   return (
-    <IconButton onClick={() => dispatch(logout())}>
+    <IconButton onClick={() => dispatch(logout())} marginTop="1">
       <FiLogOut />
     </IconButton>
   );
