@@ -1,7 +1,7 @@
 import { transfer, Wallet } from "@/features/wallet/walletSlice";
 import { Box, Flex, Text, Button } from "@chakra-ui/react";
 import React, { Dispatch, SetStateAction, useState } from "react";
-import { CloseButton } from "../ui/close-button";
+import { CloseButton } from "iobutton"
 import { useAppSelector, useAppDispatch } from "@/app/hooks";
 import {
   NativeSelectField,
@@ -56,12 +56,12 @@ export const Transfer: React.FC<TransferProps> = ({
       borderRadius="lg"
       _open={{ animation: "slide-fade-in 500ms ease-out" }}
     >
-      <Flex justifyContent="space-between">
-        <Text padding="2" textStyle="xl" fontWeight="semibold">
-          Choose wallet to transfer
-        </Text>
+      <Flex justifyContent="end">       
         <CloseButton onClick={() => setShowTransfer(false)} />
       </Flex>
+      <Text textAlign="center" textStyle="xl" fontWeight="semibold">
+          Choose wallet to transfer
+        </Text>
       <Flex padding="6" flexDirection="column" justifyContent="center">
         <NativeSelectRoot>
           <NativeSelectField

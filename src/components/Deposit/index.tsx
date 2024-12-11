@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction, useState } from "react";
 import { Box, Button, Flex, Text, Center } from "@chakra-ui/react";
 
-import { CloseButton } from "../ui/close-button";
+import { CloseButton } from "iobutton"
 import {
   NumberInputField,
   NumberInputRoot,
