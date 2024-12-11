@@ -10,6 +10,7 @@ This is a web application developed with React, Typescript, and Redux (state man
 - Deposit money into the wallet
 - Money transfer from User A to User B
 
+![example-img]([https://github.com/migueldcdev/repo-images/blob/main/idea-board/idea-board.png](https://raw.githubusercontent.com/migueldcdev/repo-images/refs/heads/main/iob-wallet/1000040475.jpg))
 ## Useful commands
 
 To install the app
