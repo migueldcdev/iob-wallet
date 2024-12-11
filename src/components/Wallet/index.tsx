@@ -30,7 +30,7 @@ export const Wallet = () => {
           md={{ width: "3/6" }}
           lg={{ width: "2/6" }}
           borderRadius="md"
-          marginTop="5"
+          marginTop="2"
           padding="2"
         >
           <Text marginTop="8" textStyle="4xl" fontWeight="bold" paddingX="1">
