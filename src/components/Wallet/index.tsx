@@ -22,7 +22,7 @@ export const Wallet = () => {
     <>
       {wallet && (
         <Box
-          background="gray.300"
+          background="blue.100"
           width="full"
           minHeight="80vh"
           maxHeight="80vh"
